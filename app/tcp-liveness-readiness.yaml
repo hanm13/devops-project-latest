@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: backend
+  labels:
+    app: backend
+spec:
+  containers:
+    - name: backend
+      image: hanm13/verify-bot
+      ports:
+        - containerPort: 3080
+      readinessProbe:
+        tcpSocket:
+          port: 3000
+        initialDelaySeconds: 5
+        periodSeconds: 10
+      livenessProbe:
+        tcpSocket:
+          port: 3080
+        initialDelaySeconds: 15
+        periodSeconds: 20

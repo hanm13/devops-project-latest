@@ -1,0 +1,39 @@
+# Service Backend
+apiVersion: v1
+kind : Service
+metadata:
+  name: backend
+  labels:
+    group: example
+spec:
+  selector:
+    app: app
+  ports:
+    - protocol: 'TCP'
+      port: 3000
+      targetPort: 3000
+  type: LoadBalancer
+---
+# Deployment Backend
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: discord-bot
+  labels:
+    group: discord-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+      tier: backend
+  #POD
+  template:
+    metadata:
+      labels:
+        app: app
+        tier: backend
+    spec:
+      containers:
+        - name: node
+          image: hanm13/verify-bot

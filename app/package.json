@@ -1,0 +1,19 @@
+{
+  "name": "bot-test",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "tsc --project tsconfig.json && node ./dist/app"
+  },
+  "dependencies": {
+    "@types/node": "^8.5.1",
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "discord.js": "^11.2.1",
+    "express": "~4.15.5",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.0",
+    "serve-favicon": "~2.4.5"
+  }
+}

@@ -1,0 +1,24 @@
+# Deployment Backend
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: discord-bot
+  namespace: hanm13
+  labels:
+    group: discord-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+      tier: backend
+  #POD
+  template:
+    metadata:
+      labels:
+        app: app
+        tier: backend
+    spec:
+      containers:
+        - name: node
+          image: hanm13/verify-bot:latest

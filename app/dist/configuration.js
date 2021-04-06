@@ -5,7 +5,7 @@ exports.config = {
     assignedRole: "Member",
     adminRoles: ["Founder", "Manager"],
     channelId: '_' + '__CHANNEL_ID__',
-    token: '_' + '__TOKEN__',
+    token: process.env.TOKEN,
     interval: 1,
     retryTimes: 10
 };

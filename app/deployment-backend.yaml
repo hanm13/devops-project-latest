@@ -7,7 +7,7 @@ metadata:
   labels:
     group: discord-bot
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: app
@@ -22,3 +22,12 @@ spec:
       containers:
         - name: node
           image: hanm13/verify-bot:latest
+          env:
+            # Define the environment variable
+            - name: TOKEN
+              valueFrom:
+                configMapKeyRef:
+                  # The ConfigMap containing the value you want to assign to SPECIAL_LEVEL_KEY
+                  name: configmap-token-1
+                  # Specify the key associated with the value
+                  key: TOKEN

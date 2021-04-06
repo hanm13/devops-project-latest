@@ -9,10 +9,6 @@ configMapGenerator:
   # Check the diffrence between the `files` option below
   - name: configMapFromEnv
     env: .env
-  # Generate config file from input file
-  - name: configFromFile
-    files:
-      - .env
 # kustomization.yaml contents
 resources:
   - deployment-backend.yaml

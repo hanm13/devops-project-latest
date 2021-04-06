@@ -33,6 +33,14 @@ pipeline {
 
             }
         }
+        stage('Post Build Test') {
+            steps{
+                script {
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                }
+                echo "Build ${env.BUILD_NUMBER}"
+            }
+        }
         stage('Deploy') {
             steps{
                 script {
